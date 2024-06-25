@@ -1,10 +1,8 @@
 ---
 # tasks file for roles/check_environment
-- hosts: localhost
-  tasks:
-    - name: Get hostname machine
-      shell: "hostname"
-      register: hostname
+- name: Get hostname machine
+  shell: "hostname"
+  register: hostname
 
-    - debug:
-        var: hostname.stdout_lines
+- debug:
+    var: hostname.stdout_lines
