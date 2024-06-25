@@ -1,6 +1,10 @@
 ---
 # tasks file for roles/check_environment
 - hosts: localhost
-  gather_facts: false
   tasks:
-    - ping:
+    - name: Get hostname machine
+      shell: "hostname"
+      register: hostname
+
+    - debug:
+        var: hostname.stdout_lines
