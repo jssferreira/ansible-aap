@@ -1,0 +1,6 @@
+---
+# tasks file for roles/check_environment
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - ping:
