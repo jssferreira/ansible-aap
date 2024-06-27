@@ -15,8 +15,7 @@
     enabled: true
 
 - name: Get status service
-  systemd:
-    name: mysqld
+  shell: service mysqld status
   register: service_status
 
 - debug:
