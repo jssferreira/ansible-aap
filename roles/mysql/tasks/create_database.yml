@@ -1,0 +1,7 @@
+---
+- name: Create a new database
+  community.mysql.mysql_db:
+    name: "{{db_name}}"
+    state: present
+    login_unix_socket: /var/lib/mysql/mysql.sock
+
