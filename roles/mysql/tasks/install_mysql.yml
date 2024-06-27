@@ -10,9 +10,3 @@
     name: mysqld
     state: started
     enabled: true
-
-- name: Create user to access database
-  community.mysql.mysql_user:
-    name: "{{user}}"
-    password: "{{password | password_hash('sha512')}}" 
-    priv: '*.*:ALL'
