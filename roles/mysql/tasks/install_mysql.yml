@@ -5,6 +5,9 @@
     name: mysql-server
     state: present
 
+- wait_for:
+    timeout: 30
+
 - name: Start service mysql
   service:
     name: mysqld
