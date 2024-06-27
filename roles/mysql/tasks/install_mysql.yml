@@ -10,3 +10,11 @@
     name: mysqld
     state: started
     enabled: true
+
+- name: Get status service
+  systemd:
+    name: mysqld
+  register: service_status
+
+- debug:
+    var: service_status.stdout_lines
