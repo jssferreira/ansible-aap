@@ -3,3 +3,7 @@
   community.mysql.mysql_info:
     filter:
       - version
+  register: ms_version
+
+- debug:
+    var: ms_version.stdout_lines
