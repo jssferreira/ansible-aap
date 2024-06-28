@@ -8,3 +8,8 @@
 
 - debug:
     var: ms_version.version.full
+
+- name: Create a motd file with MySql version
+  ansible.builtin.copy:
+    src: files/motd
+    dest: /etc/motd
