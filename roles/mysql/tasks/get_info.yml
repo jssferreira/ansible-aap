@@ -1,5 +1,5 @@
 ---
-- name: Create database user to connect in all databases
+- name: Get version from MySQL
   community.mysql.mysql_info:
     config_file: /root/.my.cnf
     filter:
@@ -7,4 +7,4 @@
   register: ms_version
 
 - debug:
-    var: ms_version.stdout_lines
+    var: ms_version.version.full
