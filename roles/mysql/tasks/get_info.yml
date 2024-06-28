@@ -11,5 +11,5 @@
 
 - name: Create a motd file with MySql version
   ansible.builtin.copy:
-    src: files/motd
+    src: templates/motd
     dest: /etc/motd
