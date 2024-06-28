@@ -1,0 +1,5 @@
+---
+- name: Create database user to connect in all databases
+  community.mysql.mysql_info:
+    filter:
+      - version

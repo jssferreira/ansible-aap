@@ -1,4 +1,11 @@
 ---
+- name: Create database user to connect in all databases
+  community.mysql.mysql_user:
+    name: "{{username}}"
+    password: "{{password | password_hash('sha512')}}"
+    priv: '*.*:ALL'
+    state: present
+
 - name: Create a new database
   community.mysql.mysql_db:
     name: "{{db_name}}"
