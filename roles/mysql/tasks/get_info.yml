@@ -1,6 +1,7 @@
 ---
 - name: Create database user to connect in all databases
   community.mysql.mysql_info:
+    config_file: /root/.my.cnf
     filter:
       - version
   register: ms_version
