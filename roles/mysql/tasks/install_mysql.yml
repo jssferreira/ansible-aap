@@ -1,22 +1,21 @@
 ---
-# tasks file for roles/mysql
 - name: Install mysql-server
-  yum:
+  ansible.builtin.yum:
     name: mysql-server
     state: present
 
-- wait_for:
+- ansible.builtin.wait_for:
     timeout: 30
 
 - name: Start service mysql
-  service:
+  ansible.builtin.service:
     name: mysqld
-    state: started
+    state: restarted
     enabled: true
 
 - name: Get status service
-  shell: service mysqld status
+  ansible.builtin.shell: service mysqld status
   register: service_status
 
 - debug:
-    var: service_status.stdout_lines
+    msg: "{{service_status.stdout_lines[2] | replace('     ','')}}"
