@@ -5,6 +5,7 @@
     password: "{{password | password_hash('sha512')}}"
     priv: '*.*:ALL'
     state: present
+  when: username is defined
 
 - name: Create a new database
   community.mysql.mysql_db:
