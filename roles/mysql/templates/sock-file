@@ -10,7 +10,6 @@
 !includedir /etc/my.cnf.d
 
 [mysqld]
-skip-grant-tables
 socket=/var/lib/mysql/mysql.sock
 
 [client]
