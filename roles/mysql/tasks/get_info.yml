@@ -1,4 +1,23 @@
 ---
+- name: Set password for user on mysql
+  community.mysql.mysql_query:
+    query: "{{item}}"
+    login_unix_socket: /run/mysqld/mysqld.sock
+  with_items:
+    - FLUSH PRIVILEGES;
+    - ALTER USER '{{user}}'@'localhost' IDENTIFIED BY '{{password}}';
+
+- name: Remove skip-grant-tables from mysql file sock
+  ansible.builtin.lineinfile:
+    path: /etc/my.cnf
+    state: absent
+    regexp: '^%skip-grant-tables'
+
+- name: Restart mysql service
+  ansible.builtin.service:
+    name: mysqld
+    state: restarted
+
 - name: Get version from MySQL
   community.mysql.mysql_info:
     config_file: /root/.my.cnf
