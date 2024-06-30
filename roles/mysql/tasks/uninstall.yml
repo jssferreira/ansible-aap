@@ -6,7 +6,7 @@
 
 - name: Uninstall mysql-server
   ansible.builtin.yum:
-    name: mysql-server
+    name: mysql*
     state: absent
 
 - name: Remove all mysql files
