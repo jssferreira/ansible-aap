@@ -3,7 +3,7 @@
   ansible.builtin.shell: mysql -e "FLUSH PRIVILEGES;"
 
 - name: Change password root mysql
-  ansible.builtin.shell: mysql -e "ALTER USER 'root'@'localhost' identified by '{{password}}';"
+  ansible.builtin.shell: mysql -e "ALTER USER 'root'@'localhost' identified by '{{password | password_hash('sha512')}}';"
 
 - name: Get version from MySQL
   community.mysql.mysql_info:
