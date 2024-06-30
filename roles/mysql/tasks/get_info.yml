@@ -1,7 +1,4 @@
 ---
-- name: Login into mysql with user
-  ansible.builtin.shell: "mysql -u root -p he0dgb3b"
-
 - name: Get version from MySQL
   community.mysql.mysql_info:
     login_unix_socket: /var/run/mysqld/mysqld.sock
