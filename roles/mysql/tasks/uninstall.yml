@@ -17,3 +17,9 @@
     - /var/lib/mysql/
     - /etc/mysql/
     - /var/log/mysql
+
+- name: Remove user mysql
+  ansible.builtin.user:
+    name: mysql
+    state: absent
+    remove: yes
