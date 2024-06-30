@@ -1,23 +1,6 @@
 ---
-- name: Create database user to connect in all databases
-  community.mysql.mysql_user:
-    name: "{{user}}"
-    password: "{{password | password_hash('sha512')}}"
-    priv: '*.*:ALL'
-    state: present
-  when: user is defined
-
 - name: Create a new database
   community.mysql.mysql_db:
     name: "{{db_name}}"
     state: present
     login_unix_socket: /var/lib/mysql/mysql.sock
-
-- name: Configure username to access database
-  ansible.builtin.lineinfile:
-    path: /root/.my.cnf
-    insertafter: "[client]"
-    line: "{{item}}"
-  with_items:
-    - "user={{user}}"
-    - "password={{password}}"
