@@ -1,7 +1,7 @@
 ---
 - name: Get version from MySQL
   community.mysql.mysql_info:
-    login_unix_socket: /var/run/mysqld/mysqld.sock
+    config_file: /root/.my.cnf
     filter:
       - version
   register: ms_version
