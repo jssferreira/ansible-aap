@@ -7,12 +7,16 @@
 - ansible.builtin.wait_for:
     timeout: 30
 
+- name: Copy config files mysql
+  ansible.builtin.templates:
+    src: templates/sock-file
+    dest: /etc/my.cnf
+
 - name: Start service mysql
   ansible.builtin.service:
     name: mysqld
     state: restarted
     enabled: true
-  ignore_errors: yes
 
 - name: Get status service
   ansible.builtin.shell: service mysqld status
