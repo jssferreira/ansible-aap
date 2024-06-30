@@ -25,11 +25,11 @@
 - debug:
     msg: "{{service_status.stdout_lines[2] | replace('     ','')}}"
 
-#- name: Configure username to access database
-#  ansible.builtin.lineinfile:
-#    path: /root/.my.cnf
-#    insertafter: "[client]"
-#    line: "{{item}}"
-#  with_items:
-#    - "user={{user}}"
-#    - "password={{password}}"
+- name: Configure username to access database
+  ansible.builtin.lineinfile:
+    path: /root/.my.cnf
+    insertafter: "[client]"
+    line: "{{item}}"
+  with_items:
+    - "user={{user}}"
+    - "password={{password}}"
