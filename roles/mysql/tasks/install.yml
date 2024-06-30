@@ -8,7 +8,7 @@
     timeout: 30
 
 - name: Copy config files mysql
-  ansible.builtin.templates:
+  ansible.builtin.template:
     src: templates/sock-file
     dest: /etc/my.cnf
 
