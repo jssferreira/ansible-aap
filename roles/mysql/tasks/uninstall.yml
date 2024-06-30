@@ -1,0 +1,22 @@
+---
+- name: Stop service mysql
+  ansible.builtin.service:
+    name: mysqld
+    state: stopped
+
+- ansible.builtin.wait_for:
+    timeout: 30
+
+- name: Uninstall mysql-server
+  ansible.builtin.yum:
+    name: mysql-server
+    state: absent
+
+- name: Remove all mysql files
+  ansible.builtin.file:
+    name: "{{item}}"
+    state: absent
+  with_items:
+    - /var/lib/mysql/
+    - /etc/mysql/
+    - /var/log/mysql
