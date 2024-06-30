@@ -12,11 +12,11 @@
     name: mysqld
     state: restarted
     enabled: true
+  ignore_errors: yes
 
 - name: Get status service
   ansible.builtin.shell: service mysqld status
   register: service_status
-  ignore_errors: yes
 
 - debug:
     msg: "{{service_status.stdout_lines[2] | replace('     ','')}}"
