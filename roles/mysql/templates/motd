@@ -7,6 +7,6 @@ ___  ___      _____  _____ _
          __/ |                   
         |___/                    
 
-Bem vindo a instância MySQL! 
+Welcome to MySQL instance! 
 MySQL Version: "{{ms_version.version.full}}"
 
