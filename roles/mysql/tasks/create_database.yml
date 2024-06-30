@@ -12,3 +12,12 @@
     name: "{{db_name}}"
     state: present
     login_unix_socket: /var/lib/mysql/mysql.sock
+
+- name: Configure username to access database
+  ansible.builtin.lineinfile:
+    path: /root/.my.cnf
+    insertafter: "[client]"
+    line: "{{item}}"
+  with_items:
+    - "user={{user}}"
+    - "password={{password}}"
