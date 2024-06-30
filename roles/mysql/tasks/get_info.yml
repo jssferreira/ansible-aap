@@ -1,7 +1,13 @@
 ---
+- name: Change password root mysql
+  ansible.builtin.shell: mysql -e "FLUSH PRIVILEGES;"
+
+- name: Change password root mysql
+  ansible.builtin.shell: mysql -e "ALTER USER 'root'@'localhost' identified by '{{password}}';"
+
 - name: Get version from MySQL
   community.mysql.mysql_info:
-    config_file: /root/.my.cnf
+    #config_file: /root/.my.cnf
     filter:
       - version
   register: ms_version
