@@ -1,9 +1,9 @@
 ---
 - name: Set password for user on mysql
-  ansible.builtin.shell: "mysql -e '{{item}}'"
+  ansible.builtin.shell: 'mysql -e "{{item}}"'
   with_items:
     - FLUSH PRIVILEGES;
-    - ALTER USER "{{user}}"@"localhost" IDENTIFIED BY "{{password}}";
+    - ALTER USER "'{{user}}'"@'localhost' IDENTIFIED BY "'{{password}}'";
 
 - name: Remove skip-grant-tables from mysql file sock
   ansible.builtin.lineinfile:
