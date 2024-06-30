@@ -1,5 +1,10 @@
 ---
-- name: Change password root mysql
+- name: Restart service mysql
+  ansible.builtin.service:
+    name: mysqld
+    state: restarted
+
+- name: Flush privileges
   ansible.builtin.shell: mysql -e "FLUSH PRIVILEGES;"
 
 - name: Change password root mysql
