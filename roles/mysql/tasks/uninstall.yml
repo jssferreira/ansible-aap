@@ -4,9 +4,6 @@
     name: mysqld
     state: stopped
 
-- ansible.builtin.wait_for:
-    timeout: 30
-
 - name: Uninstall mysql-server
   ansible.builtin.yum:
     name: mysql-server
