@@ -10,4 +10,4 @@
   tasks:
     - include_role:
         name: mysql
-        tasks_from: install
+        tasks_from: uninstall
