@@ -1,0 +1,16 @@
+---
+- name: Install apache
+  ansible.builtin.yum:
+    name: httpd
+    state: latest
+
+- name: Start and enable service
+  ansible.builtin.service:
+    name: httpd
+    state: restarted
+    enabled: true
+
+- name: Copy test file html
+  ansible.builtin.template:
+    src: templates/index
+    dest: /var/www/html/index.html
