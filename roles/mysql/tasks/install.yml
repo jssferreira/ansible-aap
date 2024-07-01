@@ -7,11 +7,18 @@
 - ansible.builtin.wait_for:
     timeout: 30
 
+- name: Create file credentials
+  ansible.builtin.copy:
+    src: files/my.cnf
+    dest: /root/.my.cnf 
+
 - name: Start service mysql
   ansible.builtin.service:
     name: mysqld
     state: restarted
     enabled: true
+
+
 
 - name: Get status service
   ansible.builtin.shell: service mysqld status
