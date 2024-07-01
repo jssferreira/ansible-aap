@@ -7,6 +7,7 @@
 
 - name: Create table to database {{db_name}}
   community.mysql.mysql_query:
-    login_db: root
-    query: CREATE TABLE Persons (PersonID int, LastName varchar(255), FirstName varchar(255), City varchar(255));
+    query:
+      - USE `"{{db_name}}"`; 
+      - CREATE TABLE Persons (PersonID int, LastName varchar(255), FirstName varchar(255), City varchar(255));
     login_unix_socket: /run/mysqld/mysqld.sock
