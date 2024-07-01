@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - add_host:
+        name: "{{ host }}"
+        group: mysql_host
+
+- hosts: mysql_host
+  tasks:
+    - include_role:
+        name: apache
