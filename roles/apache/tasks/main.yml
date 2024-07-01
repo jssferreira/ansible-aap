@@ -14,3 +14,9 @@
   ansible.builtin.template:
     src: templates/index
     dest: /var/www/html/index.html
+
+- name: New firewall rule to http
+  ansible.builtin.shell: "{{item}}"
+  with_items:
+    - firewall-cmd --permanent --add-service=http
+    - firewall-cmd --reload
