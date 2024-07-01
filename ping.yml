@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - add_host:
+        name: "{{ host }}"
+        group: check
+
+- hosts: check
+  gather_facts: false
+  tasks:
+    - ping:

@@ -1,0 +1,11 @@
+---
+ansible-navigator:
+  execution-environment:
+    container-engine: podman
+    enabled: true
+    image: hub01.joaosfe.local/custom-ee-mysql:1.0
+    pull:
+      policy: always
+  logging:
+    level: critical
+  mode: stdout
